@@ -1,0 +1,10 @@
+:root {
+    --font-size-sm: 0.8rem;
+    --font-size-md: 1.1rem;
+    --font-size-lg: 1.5rem;
+    --font-size-xl: 1.8rem;
+
+    --border-radius-squared: 0rem;
+    --border-radius-normal: 0.5rem;
+    --border-radius-rounded: 15rem;
+}
