@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Button from "$lib/Button.svelte";
+	import Button from "$lib/components/Button/Button.svelte";
 	import {faCheck, faGlobe, faHome, faMouse} from '@fortawesome/free-solid-svg-icons';
 
 	function onButtonClick() {

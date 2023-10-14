@@ -1,6 +1,6 @@
 <script lang="ts">
-    import './var.css';
-	import type { ButtonBorder, ButtonSizeOpts, ButtonState, ButtonVariant } from "./types.js";
+    import '../../var.css';
+	import type { ButtonBorder, ButtonSizeOpts, ButtonState, ButtonVariant } from "../../types.js";
     import type { IconDefinition } from '@fortawesome/fontawesome-common-types';
 	import { faSpinner } from "@fortawesome/free-solid-svg-icons";
     import Fa from 'svelte-fa/src/fa.svelte'
@@ -24,7 +24,7 @@
         --button-size: var(--font-size-${size});
         --border-radius: var(--border-radius-${border});
         `}
-    class={`button-size button-border ${variantClass} ${loadingClass}`} disabled={state=='disabled'}>
+    class={`button-size button-border ${variantClass} ${loadingClass}`} disabled={state==='disabled'}>
     {#if state!=='loading'}
         {#if iconLeft}
             <Fa icon={iconLeft} />
@@ -47,7 +47,7 @@
         padding: 0.6rem 1.2rem;
         height: fit-content;
         width: fit-content;
-        text-wrap: nowrap;
+        text-wrap: none;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         transition: transform 0.15s ease;
         overflow-x: hidden;
