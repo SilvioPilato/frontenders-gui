@@ -1,7 +1,5 @@
 <script lang="ts">
 	import Button from "$lib/components/Button/Button.svelte";
-	import {faCheck, faGlobe, faHome, faMouse} from '@fortawesome/free-solid-svg-icons';
-
 	function onButtonClick() {
 		window.open('https://youtu.be/dQw4w9WgXcQ?si=1q6lY9cosULG0kqo', '_blank');
 	}
@@ -11,64 +9,64 @@
 	<div class="container-section">
 		<h1>Sizes</h1>
 		<div class="button-section">
-			<Button text = "sm" size="sm"/>
-			<Button text = "md" size="md"/>
-			<Button text = "lg" size="lg"/>
-			<Button text = "xl" size="xl"/>
+			<Button size="sm">sm</Button>
+			<Button size="md">md</Button>
+			<Button size="lg">lg</Button>
+			<Button size="xl">xl</Button>
 		</div>
 	</div>
 	<div class="container-section">
 		<h1>Borders</h1>
 		<div class="button-section">
-			<Button text = "Normal" border="normal" />
-			<Button text = "Rounded" border="rounded" />
-			<Button text = "Squared" border="squared" />
+			<Button border="normal">Normal</Button>
+			<Button border="rounded" >Rounded</Button>
+			<Button border="squared" >Squared</Button>
 		</div>
 	</div>
 	<div class="container-section">
 		<h1>States</h1>
 		<div class="button-section">
 			<Button state="loading" />
-			<Button state="disabled" text="Disabled"/>
+			<Button state="disabled">Disabled</Button>
 		</div>
 	</div>
 	<div class="container-section">
 		<h1>Variants</h1>
 		<div class="button-section">
-			<Button text="Normal" variant="normal"/>
-			<Button text="Primary" variant="primary"/>
-			<Button text="Info" variant="info"/>
-			<Button text="Link" variant="link"/>
-			<Button text="Success" variant="success"/>
-			<Button text="Warning" variant="warning"/>
-			<Button text="Danger" variant="danger"/>
+			<Button variant="normal">Normal</Button>
+			<Button variant="primary">Primary</Button>
+			<Button variant="info">Info</Button>
+			<Button variant="link">Link</Button>
+			<Button variant="success">Success</Button>
+			<Button variant="warning">Warning</Button>
+			<Button variant="danger">Danger</Button>
 		</div>
 	</div>
 	<div class="container-section">
 		<h1>Variants Outlined</h1>
 		<div class="button-section">
-			<Button text="Normal" variant="normal" outlined/>
-			<Button text="Primary" variant="primary" outlined/>
-			<Button text="Info" variant="info" outlined/>
-			<Button text="Link" variant="link" outlined/>
-			<Button text="Success" variant="success" outlined/>
-			<Button text="Warning" variant="warning" outlined/>
-			<Button text="Danger" variant="danger" outlined/>
+			<Button variant="normal" outlined>Normal</Button>
+			<Button variant="primary" outlined>Primary</Button>
+			<Button variant="info" outlined>Info</Button>
+			<Button variant="link" outlined>Link</Button>
+			<Button variant="success" outlined>Success</Button>
+			<Button variant="warning" outlined>Warning</Button>
+			<Button variant="danger" outlined>Danger</Button>
 		</div>
 	</div>
 	<div class="container-section">
 		<h1>Icons</h1>
 		<div class="button-section">
-			<Button iconRight={faCheck} />
-			<Button text="Hello" variant="info" iconRight={faGlobe} />
-			<Button text="Home" variant="success" iconLeft={faHome} />
+			<Button><i class="fa-solid fa-check" /></Button>
+			<Button>Right Icon <i class="fa-solid fa-globe" /></Button>
+			<Button><i class="fa-solid fa-home" /> Left Icon</Button>
 		</div>
 	</div>
 
 	<div class="container-section">
 		<h1>On Click</h1>
 		<div class="button-section">
-			<Button text="" variant="danger" iconRight={faMouse} onClick={onButtonClick}/>
+			<Button variant="danger" on:click={onButtonClick}><i class="fa-solid fa-mouse" /></Button>
 		</div>
 	</div>
 </div>
