@@ -1,22 +1,21 @@
 <script lang="ts">
     import '../../var.css';
 	import type { ButtonBorder, ButtonSizeOpts, ButtonState, ButtonVariant } from "../../types.js";
-    import type { IconDefinition } from '@fortawesome/fontawesome-common-types';
-	import { faSpinner } from "@fortawesome/free-solid-svg-icons";
-    import Fa from 'svelte-fa/src/fa.svelte'
+    import { createEventDispatcher } from 'svelte';
 
-    export let onClick: () => void = () => null;
-    export let text = "";
     export let size: ButtonSizeOpts = "md";
     export let border: ButtonBorder = 'normal';
     export let state: ButtonState = 'normal';
-    export let iconRight: IconDefinition | undefined | null = null;
-    export let iconLeft: IconDefinition | undefined | null = null;
     export let variant: ButtonVariant = "normal";
     export let outlined = false;
 
     $: variantClass = outlined ? `button-variant-${variant}-outlined` : `button-variant-${variant}`;
     $: loadingClass = state =='loading' ? 'button-loading' : '';
+
+    const dispatch = createEventDispatcher();
+    function onClick() {
+        dispatch('click', {});
+    }
 </script>
 
 <button tabindex="0" type="button" on:click={onClick}
@@ -26,15 +25,9 @@
         `}
     class={`button-size button-border ${variantClass} ${loadingClass}`} disabled={state==='disabled'}>
     {#if state!=='loading'}
-        {#if iconLeft}
-            <Fa icon={iconLeft} />
-        {/if}
-            {text}
-        {#if iconRight}
-            <Fa icon={iconRight} />
-        {/if}
+        <slot />
     {:else}
-        <Fa spin icon={faSpinner}/>
+        <i class="fa-solid fa-spinner fa-spin" />
     {/if}
 </button>
 
@@ -81,12 +74,8 @@
             transform: none;
         }
         &:before {
-			width: 0%;
+			width: 0;
 		}
-    }
-
-    .button-size {
-        font-size: var(--button-size);
     }
     .button-border {
         border-radius: var(--border-radius);
@@ -94,8 +83,9 @@
 			border-radius: var(--border-radius);
 		}
     }
-
-
+    .button-size {
+        font-size: var(--button-size);
+    }
     .button-loading {
         cursor: progress;
     }
